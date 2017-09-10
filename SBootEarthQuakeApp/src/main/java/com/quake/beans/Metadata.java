@@ -1,6 +1,7 @@
 package com.quake.beans;
 import java.util.Date;
-
+/**
+*/
 public class Metadata {
 
     private long generated;
@@ -55,5 +56,5 @@ public class Metadata {
 		return "Metadata [generated=" + generated + ", url=" + url + ", title=" + title + ", status=" + status
 				+ ", api=" + api + ", count=" + count + "]";
 	}
-      
-}	
+
+}

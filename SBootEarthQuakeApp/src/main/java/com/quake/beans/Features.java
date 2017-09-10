@@ -1,5 +1,9 @@
 package com.quake.beans;
-
+/**
+ * 
+ * @author jaspal
+ *
+ */
 public class Features {
 
     private String type;

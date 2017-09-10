@@ -1,6 +1,10 @@
 package com.quake.beans;
 import java.util.List;
-
+/**
+ * 
+ * @author jaspal
+ *
+ */
 public class EarthDataRoot {
 
     private String type;

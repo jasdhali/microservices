@@ -1,9 +1,7 @@
 package com.quake.service;
 
 import org.springframework.stereotype.Component;
-
 import com.quake.beans.EarthDataRoot;
-
 @Component
 public class EarthQuakeDatabase {
 	private EarthDataRoot dataRoot;

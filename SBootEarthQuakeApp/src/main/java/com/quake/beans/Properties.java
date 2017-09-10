@@ -1,6 +1,8 @@
 /* Copyright 2017 freecodeformat.com */
 package com.quake.beans;
 import com.fasterxml.jackson.annotation.JsonProperty;
+/**
+*/
 public class Properties {
 
     private double mag;

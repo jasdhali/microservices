@@ -1,4 +1,4 @@
-package com.quake.config;
+/*package com.quake.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -27,3 +27,4 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("admin").password("admin").roles("USER");
 	}
 }
+*/

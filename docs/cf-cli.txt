@@ -7,9 +7,39 @@ Targeted org jasdhali-org
 
 Targeted space development
 
-
-
 API endpoint:   https://api.run.pivotal.io (API version: 2.94.0)
 User:           jasdhali@gmail.com
 Org:            jasdhali-org
 Space:          development
+
+Use 'cf buildpacks' to see a list of supported buildpacks.
+
+Use 'cf logs EarthQuakeApp --recent' for more in depth log information.
+
+cf apps
+
+PostGres SQL service for spring boot app - /springJPA-postgresSQL
+cf create-user-provided-service psgservice -p '{"uri":"postgres://postgres:postgres@jasdhali-mbp.local:5432/testdb"}'
+
+cf push springJPA-postgresSQL -p target/springJPA-postgresSQL-0.0.1-SNAPSHOT.jar -k 128M -m 128M --no-start
+cf scale springJPA-postgresSQL -k 64M -m 64M --no-start
+cf bind-service springJPA-postgresSQL psgservice
+cf start springJPA-postgresSQL
+
+
+cf push gs-sts-cloud-foundry-deployment -p target/gs-sts-cloud-foundry-deployment-0.1.0.jar --no-start
+cf start gs-sts-cloud-foundry-deployment
+
+
+App springBoot-EnvVar was started using this command `JAVA_OPTS="-agentpath:$PWD/.java-buildpack/open_jdk_jre/bin/jvmkill-1.10.0_RELEASE=printHeapHistogram=1 -Djava.io.tmpdir=$TMPDIR -Djava.ext.dirs=$PWD/.java-buildpack/container_security_provider:$PWD/.java-buildpack/open_jdk_jre/lib/ext -Djava.security.properties=$PWD/.java-buildpack/security_providers/java.security $JAVA_OPTS" && CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-3.9.0_RELEASE -totMemory=$MEMORY_LIMIT -stackThreads=300 -loadedClasses=13546 -poolType=metaspace -vmOptions="$JAVA_OPTS") && echo JVM Memory Configuration: $CALCULATED_MEMORY && JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY" && SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/. org.springframework.boot.loader.JarLauncher`
+
+Showing health and status for app springBoot-EnvVar in org jasdhali-org / space development as jasdhali@gmail.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: springboot-envvar.cfapps.io
+last uploaded: Fri Sep 8 03:26:03 UTC 2017
+stack: cflinuxfs2
+buildpack: client-certificate-mapper=1.2.0_RELEASE container-security-provider=1.8.0_RELEASE java-buildpack=v4.5-offline-https://github.com/cloudfoundry/java-buildpack.git#ffeefb9 java-main java-opts jvmkill-agent=1.10.0_RELEASE open-jdk-like-jre=1.8.0_1...

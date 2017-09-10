@@ -1,6 +1,10 @@
 package com.quake.beans;
 import java.util.List;
-
+/**
+ * 
+ * @author jaspal
+ *
+ */
 public class Geometry {
 
     private String type;

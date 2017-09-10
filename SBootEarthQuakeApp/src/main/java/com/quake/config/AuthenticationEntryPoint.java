@@ -1,4 +1,4 @@
-package com.quake.config;
+/*package com.quake.config;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,4 +29,4 @@ public class AuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
         super.afterPropertiesSet();
     }
 
-}
+}*/

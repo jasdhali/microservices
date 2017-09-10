@@ -19,24 +19,15 @@ import com.quake.service.EarthQuakeDatabase;
 
 
 @SpringBootApplication(scanBasePackages={"com.quake"})
-public class Application {
+public class BootStarterApp {
 	private  EarthDataRoot dataRoot;   
 	
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
+	private static final Logger log = LoggerFactory.getLogger(BootStarterApp.class);
 
-    public static void main_old(String args[]) {
-        RestTemplate restTemplate = new RestTemplate();
-        Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
-        EarthDataRoot dataRoot = 
-        		restTemplate.getForObject("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson", EarthDataRoot.class);
-        if( dataRoot !=null ){
-        	log.info( dataRoot.toString() );
-        }
-        log.info(quote.toString());
-    }
+
     
     public static void main(String args[]) {
-		ConfigurableApplicationContext context = SpringApplication.run(Application.class);
+		ConfigurableApplicationContext context = SpringApplication.run(BootStarterApp.class);
 	}
     
     @Bean
@@ -55,15 +46,12 @@ public class Application {
     @Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 		return args -> {
-			Quote quote = restTemplate.getForObject(
-					"http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
 			dataRoot = 
 	        		restTemplate.getForObject("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", EarthDataRoot.class);
 	        if( dataRoot !=null ){
 	        	//log.info( dataRoot.toString() );
 	        	getQuakeData().setDataRoot(dataRoot);
 	        }	
-			log.info(quote.toString());
 			
 		};
 	}
