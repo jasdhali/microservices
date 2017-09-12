@@ -1,0 +1,5 @@
+http://cli.cloudfoundry.org/en-US/cf/scale.html
+http://cloud.spring.io/spring-cloud-static/spring-cloud.html
+https://uaa.run.pivotal.io/
+https://console.run.pivotal.io/
+http://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html#view-env
